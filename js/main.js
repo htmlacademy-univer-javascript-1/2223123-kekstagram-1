@@ -1,7 +1,7 @@
 const getRandomNumber = function(minNumber, maxNumber){
   if (minNumber >= maxNumber) {
     return 'Левое значение должно быть меньше правого';
-  } 
+  }
   else {
     minNumber = Math.ceil(minNumber);
     maxNumber = Math.floor(maxNumber);
