@@ -82,3 +82,4 @@ let getRandomPeople = function () {
 };
 
 console.log(getRandomPeople());
+
