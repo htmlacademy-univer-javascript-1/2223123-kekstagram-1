@@ -1,19 +1,3 @@
-const COMMENTS_VARIANTS = [
-  'Всё отлично!',
-  'В целом всё неплохо. Но не всё.',
-  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
-  'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
-  'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
-  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
-];
-const NAMES_VARIANTS = [
-  'Артем',
-  'Александр',
-  'Анастасия',
-  'Алексей',
-  'Маргарита',
-];
-
 const getRandomNumber = function (minNumber, maxNumber) {
   if (minNumber >= maxNumber) {
     return 'Левое значение должно быть меньше правого';
@@ -24,6 +8,23 @@ const getRandomNumber = function (minNumber, maxNumber) {
     return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
   }
 };
+
+const COMMENTS_VARIANTS = [
+  'Всё отлично!',
+  'В целом всё неплохо. Но не всё.',
+  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
+  'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
+  'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
+  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
+];
+
+const NAMES_VARIANTS = [
+  'Артем',
+  'Александр',
+  'Анастасия',
+  'Алексей',
+  'Маргарита',
+];
 
 // let checkStringLength = function (string, maxLength){
 //     let stringLength = string.length;
@@ -38,9 +39,9 @@ const getNumbersArray = function (amount) {
   return numbersArray;
 };
 
-let commentsIds = getNumbersArray(100);
-let photosIds = getNumbersArray(25);
-let usersIds = getNumbersArray(25);
+const commentsIds = getNumbersArray(100);
+const photosIds = getNumbersArray(25);
+const usersIds = getNumbersArray(25);
 
 const getRandomDifferentNumber = function (array) {
   let randomIndex = getRandomNumber(0, array.length - 1);
