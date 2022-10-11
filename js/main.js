@@ -32,7 +32,7 @@ const NAMES_VARIANTS = [
 // };
 
 const getNumbersArray = function (amount) {
-  let numbersArray = [];
+  const numbersArray = [];
   for (let i = 0; i < amount; i++) {
     numbersArray[i] = i + 1;
   }
@@ -44,18 +44,18 @@ const photosIds = getNumbersArray(25);
 const usersIds = getNumbersArray(25);
 
 const getRandomDifferentNumber = function (array) {
-  let randomIndex = getRandomNumber(0, array.length - 1);
+  const randomIndex = getRandomNumber(0, array.length - 1);
   if (array[randomIndex] === '') {
     return getRandomDifferentNumber(array);
   } else {
-    let randomNumber = array[randomIndex];
+    const randomNumber = array[randomIndex];
     array[randomIndex] = '';
     return randomNumber;
   }
 };
 
 const getRandomComment = function () {
-  let comment = {
+  const comment = {
     id: getRandomDifferentNumber(commentsIds),
     avatar: `img/avatar-${getRandomNumber(1, 6)}.svg`,
     message: COMMENTS_VARIANTS[getRandomNumber(0, COMMENTS_VARIANTS.length - 1)],
@@ -65,7 +65,7 @@ const getRandomComment = function () {
 };
 
 const getRandomPhoto = function () {
-  let user = {
+  const user = {
     id: getRandomDifferentNumber(usersIds),
     url: `photos/${getRandomDifferentNumber(photosIds)}.jpg`,
     description: 'Описание фото',
@@ -76,12 +76,12 @@ const getRandomPhoto = function () {
 };
 
 const getRandomPeople = function () {
-  let randomObjectPeople = [];
+  const randomObjectPeople = [];
   for (let i = 0; i < 25; i++) {
     randomObjectPeople[i] = getRandomPhoto();
   }
   return randomObjectPeople;
 };
 
-console.log(getRandomPeople());
+getRandomPeople();
 
