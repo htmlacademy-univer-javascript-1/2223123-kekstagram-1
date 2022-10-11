@@ -1,23 +1,24 @@
 const COMMENTS_VARIANTS = [
-    'Всё отлично!',
-    'В целом всё неплохо. Но не всё.',
-    'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
-    'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
-    'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
-    'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
+  'Всё отлично!',
+  'В целом всё неплохо. Но не всё.',
+  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
+  'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
+  'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
+  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 const NAMES_VARIANTS = [
-    'Артем',
-    'Александр',
-    'Анастасия',
-    'Алексей',
-    'Маргарита',
+  'Артем',
+  'Александр',
+  'Анастасия',
+  'Алексей',
+  'Маргарита',
 ];
 
-let getRandomNumber = function (minNumber, maxNumber) {
+const getRandomNumber = function (minNumber, maxNumber) {
   if (minNumber >= maxNumber) {
     return 'Левое значение должно быть меньше правого';
-  } else {
+  } 
+  else {
     minNumber = Math.ceil(minNumber);
     maxNumber = Math.floor(maxNumber);
     return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
@@ -29,7 +30,7 @@ let getRandomNumber = function (minNumber, maxNumber) {
 //     return (stringLength <= maxLength);
 // };
 
-let getNumbersArray = function (amount) {
+const getNumbersArray = function (amount) {
   let numbersArray = [];
   for (let i = 0; i < amount; i++) {
     numbersArray[i] = i + 1;
@@ -41,7 +42,7 @@ let commentsIds = getNumbersArray(100);
 let photosIds = getNumbersArray(25);
 let usersIds = getNumbersArray(25);
 
-let getRandomDifferentNumber = function (array) {
+const getRandomDifferentNumber = function (array) {
   let randomIndex = getRandomNumber(0, array.length - 1);
   if (array[randomIndex] === '') {
     return getRandomDifferentNumber(array);
@@ -52,7 +53,7 @@ let getRandomDifferentNumber = function (array) {
   }
 };
 
-let getRandomComment = function () {
+const getRandomComment = function () {
   let comment = {
     id: getRandomDifferentNumber(commentsIds),
     avatar: `img/avatar-${getRandomNumber(1, 6)}.svg`,
@@ -62,7 +63,7 @@ let getRandomComment = function () {
   return comment;
 };
 
-let getRandomPhoto = function () {
+const getRandomPhoto = function () {
   let user = {
     id: getRandomDifferentNumber(usersIds),
     url: `photos/${getRandomDifferentNumber(photosIds)}.jpg`,
@@ -73,7 +74,7 @@ let getRandomPhoto = function () {
   return user;
 };
 
-let getRandomPeople = function () {
+const getRandomPeople = function () {
   let randomObjectPeople = [];
   for (let i = 0; i < 25; i++) {
     randomObjectPeople[i] = getRandomPhoto();
