@@ -1,4 +1,4 @@
-const getRandomNumber = function (minNumber, maxNumber) {
+const getRandomNumber = function(minNumber, maxNumber){
   if (minNumber >= maxNumber) {
     return 'Левое значение должно быть меньше правого';
   } 
@@ -31,7 +31,7 @@ const NAMES_VARIANTS = [
 //     return (stringLength <= maxLength);
 // };
 
-const getNumbersArray = function (amount) {
+const getNumbersArray = function(amount){
   const numbersArray = [];
   for (let i = 0; i < amount; i++) {
     numbersArray[i] = i + 1;
@@ -43,7 +43,7 @@ const commentsIds = getNumbersArray(100);
 const photosIds = getNumbersArray(25);
 const usersIds = getNumbersArray(25);
 
-const getRandomDifferentNumber = function (array) {
+const getRandomDifferentNumber = function(array){
   const randomIndex = getRandomNumber(0, array.length - 1);
   if (array[randomIndex] === '') {
     return getRandomDifferentNumber(array);
@@ -54,7 +54,7 @@ const getRandomDifferentNumber = function (array) {
   }
 };
 
-const getRandomComment = function () {
+const getRandomComment = function(){
   const comment = {
     id: getRandomDifferentNumber(commentsIds),
     avatar: `img/avatar-${getRandomNumber(1, 6)}.svg`,
@@ -64,7 +64,7 @@ const getRandomComment = function () {
   return comment;
 };
 
-const getRandomPhoto = function () {
+const getRandomPhoto = function(){
   const user = {
     id: getRandomDifferentNumber(usersIds),
     url: `photos/${getRandomDifferentNumber(photosIds)}.jpg`,
@@ -75,7 +75,7 @@ const getRandomPhoto = function () {
   return user;
 };
 
-const getRandomPeople = function () {
+const getRandomPeople = function(){
   const randomObjectPeople = [];
   for (let i = 0; i < 25; i++) {
     randomObjectPeople[i] = getRandomPhoto();
