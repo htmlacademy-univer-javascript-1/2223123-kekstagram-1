@@ -16,8 +16,8 @@ const NAMES_VARIANTS = [
   'Маргарита',
 ];
 
-let getRandomComment = function () {
-  let comment = {
+const getRandomComment = function () {
+  const comment = {
     id: getRandomDifferentNumber(commentsIds),
     avatar: `img/avatar-${getRandomNumber(1, 6)}.svg`,
     message: COMMENTS_VARIANTS[getRandomNumber(0, COMMENTS_VARIANTS.length - 1)],
@@ -26,8 +26,8 @@ let getRandomComment = function () {
   return comment;
 };
 
-let getRandomPhoto = function () {
-  let user = {
+const getRandomPhoto = function () {
+  const user = {
     id: getRandomDifferentNumber(usersIds),
     url: `photos/${getRandomDifferentNumber(photosIds)}.jpg`,
     description: 'Описание фото',
@@ -37,8 +37,8 @@ let getRandomPhoto = function () {
   return user;
 };
 
-let getRandomPeople = function () {
-  let randomObjectPeople = [];
+const getRandomPeople = function () {
+  const randomObjectPeople = [];
   for (let i = 0; i < 25; i++) {
     randomObjectPeople[i] = getRandomPhoto();
   }

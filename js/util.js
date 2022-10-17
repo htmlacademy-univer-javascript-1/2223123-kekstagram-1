@@ -1,4 +1,4 @@
-let getRandomNumber = function (minNumber, maxNumber) {
+const getRandomNumber = function (minNumber, maxNumber) {
   if (minNumber >= maxNumber) {
     return 'Левое значение должно быть меньше правого';
   } else {
@@ -8,24 +8,24 @@ let getRandomNumber = function (minNumber, maxNumber) {
   }
 };
 
-let getNumbersArray = function (amount) {
-  let numbersArray = [];
+const getNumbersArray = function (amount) {
+  const numbersArray = [];
   for (let i = 0; i < amount; i++) {
     numbersArray[i] = i + 1;
   }
   return numbersArray;
 };
 
-let commentsIds = getNumbersArray(100);
-let photosIds = getNumbersArray(25);
-let usersIds = getNumbersArray(25);
+const commentsIds = getNumbersArray(100);
+const photosIds = getNumbersArray(25);
+const usersIds = getNumbersArray(25);
 
-let getRandomDifferentNumber = function (array) {
-  let randomIndex = getRandomNumber(0, array.length - 1);
+const getRandomDifferentNumber = function (array) {
+  const randomIndex = getRandomNumber(0, array.length - 1);
   if (array[randomIndex] === '') {
     return getRandomDifferentNumber(array);
   } else {
-    let randomNumber = array[randomIndex];
+    const randomNumber = array[randomIndex];
     array[randomIndex] = '';
     return randomNumber;
   }
