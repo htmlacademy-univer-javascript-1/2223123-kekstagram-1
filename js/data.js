@@ -1,4 +1,4 @@
-import {getRandomNumber, getRandomDifferentNumber, commentsIds, photosIds, usersIds} from './util.js'
+import {getRandomNumber, getRandomDifferentNumber, commentsIds, photosIds, usersIds} from './util.js';
 
 const COMMENTS_VARIANTS = [
   'Всё отлично!',
@@ -42,7 +42,7 @@ const getRandomPeople = function () {
   for (let i = 0; i < 25; i++) {
     randomObjectPeople[i] = getRandomPhoto();
   }
-    return randomObjectPeople;
+  return randomObjectPeople;
 };
 
-export{getRandomPeople, getRandomComment, getRandomPhoto}
+export{getRandomPeople, getRandomComment, getRandomPhoto};

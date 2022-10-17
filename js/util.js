@@ -36,4 +36,4 @@ const getRandomDifferentNumber = function (array) {
 //     return (stringLength <= maxLength);
 // };
 
-export {getRandomNumber, getRandomDifferentNumber, commentsIds, photosIds, usersIds}
+export {getRandomNumber, getRandomDifferentNumber, commentsIds, photosIds, usersIds};
