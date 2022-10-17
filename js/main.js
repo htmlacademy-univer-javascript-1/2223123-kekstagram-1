@@ -1,4 +1,4 @@
-import {getRandomPeople} from './data.js'
+import {getRandomPeople} from './data.js';
 
-console.log(getRandomPeople());
+getRandomPeople();
 
