@@ -1,6 +1,6 @@
-import {getRandomPhoto} from "./data.js"
-import {usersIds} from "./util.js"
-const picturesTemplate = document.querySelector("#picture").content.querySelector('.picture');
+import {getRandomPhoto} from './data.js';
+import {usersIds} from './util.js';
+const picturesTemplate = document.querySelector("#picture").content.querySelector(".picture");
 const userPictures = () => Array.from({length: usersIds}, getRandomPhoto);
 const fragment = document.createDocumentFragment();
 userPictures.forEach(() =>{
@@ -14,4 +14,3 @@ userPictures.forEach(() =>{
    fragment.appendChild(imgItem);
 });
 
-console.log(fragment.forEach())
