@@ -2,13 +2,13 @@ const fileUpload = document.querySelector('#upload-file');
 const uploadButtonCancel = document.querySelector('#upload-cancel');
 
 fileUpload.addEventListener('change', ()=>{
-document.querySelector('.img-upload__overlay').classList.remove('hidden');
-document.querySelector('bodt').classList.add('modal-open');
+  document.querySelector('.img-upload__overlay').classList.remove('hidden');
+  document.querySelector('bodt').classList.add('modal-open');
 });
 
 uploadButtonCancel.addEventListener('click', ()=>{
-    document.querySelector('img-upload__overlay').classList.add('hidden');
-    document.querySelector('body').classList.remove('modal-open');
+  document.querySelector('img-upload__overlay').classList.add('hidden');
+  document.querySelector('body').classList.remove('modal-open');
 });
 
 document.addEventListener('keydown', (evt)=>{
@@ -21,8 +21,6 @@ document.addEventListener('keydown', (evt)=>{
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadButtonSubmit = document.querySelector('.img-upload__submit');
-
-
 
 const pristine = new Pristine(uploadForm);
 
