@@ -34,7 +34,7 @@ pristine.addValidator(uploadForm.querySelector('.text__description'), validateCo
 
 function hasDuplicates(array) {
   return new Set(array).size !== array.length;
-}
+};
 
 function validateHashtag(hashtags){
   hashtags.toLowerCase();
@@ -51,9 +51,9 @@ function validateHashtag(hashtags){
   }
 
   return flag;
-}
+};
 
-pristine.addValidator(uploadForm.querySelector('.text__hashtags'), validateHashtag, 'Не больше 5 уникальных хэштэгов. Хэштэг от 1 до 20 символов, включая #')
+pristine.addValidator(uploadForm.querySelector('.text__hashtags'), validateHashtag, 'Не больше 5 уникальных хэштэгов. Хэштэг от 1 до 20 символов, включая #');
 
 uploadForm.querySelector('.text__hashtags').addEventListener('input', () => {
   if(pristine.validate()) {
@@ -76,5 +76,5 @@ uploadForm.querySelector('.text__description').addEventListener('input', () => {
 uploadForm.addEventListener('submit', function(evt){
     evt.preventDefault();
     pristine.validate();
-})
+});
 
