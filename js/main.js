@@ -1,4 +1,2 @@
-import {getRandomPeople} from './data.js';
-
-getRandomPeople();
+import './data.js';
 

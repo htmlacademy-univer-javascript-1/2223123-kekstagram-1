@@ -1,34 +1,44 @@
 const fileUpload = document.querySelector('#upload-file');
 const uploadButtonCancel = document.querySelector('#upload-cancel');
+const uploadForm = document.querySelector('.img-upload__form');
+const uploadButtonSubmit = document.querySelector('.img-upload__submit');
+const commentUser = uploadForm.querySelector('.text__description');
+const hashtagUser = uploadForm.querySelector('.text__hashtags');
 
 fileUpload.addEventListener('change', ()=>{
   document.querySelector('.img-upload__overlay').classList.remove('hidden');
-  document.querySelector('bodt').classList.add('modal-open');
+  document.querySelector('body').classList.add('modal-open');
 });
 
 uploadButtonCancel.addEventListener('click', ()=>{
-  document.querySelector('img-upload__overlay').classList.add('hidden');
+  document.querySelector('.img-upload__overlay').classList.add('hidden');
+  fileUpload.value = '';
   document.querySelector('body').classList.remove('modal-open');
 });
 
 document.addEventListener('keydown', (evt)=>{
-  if(evt.keyCode === 27){
-    document.querySelector('img-upload__overlay').classList.add('hidden');
+  if(evt.keyCode === 27 && commentUser !== document.activeElement && hashtagUser !== document.activeElement){
+    document.querySelector('.img-upload__overlay').classList.add('hidden');
+    fileUpload.value = '';
     document.querySelector('body').classList.remove('modal-open');
   }
 });
 
 
-const uploadForm = document.querySelector('.img-upload__form');
-const uploadButtonSubmit = document.querySelector('.img-upload__submit');
-
-const pristine = new Pristine(uploadForm);
+const pristine = new Pristine(uploadForm, {
+  classTo: 'img-upload__text-item',
+  errorClass:'img-upload__text-item--invalid',
+  successClass:'img-upload__text-item--valid',
+  errorTextParent:'img-upload__text-item',
+  errorTextTag: 'span',
+  errorTextClass:'form__error',
+});
 
 function validateComment(comment){
   return comment.length <= 140;
 }
 
-pristine.addValidator(uploadForm.querySelector('.text__description'), validateComment, 'Сообщение не больше 140 символов');
+pristine.addValidator(commentUser, validateComment, 'Сообщение не больше 140 символов');
 
 function hasDuplicates(array) {
   return new Set(array).size !== array.length;
@@ -51,9 +61,9 @@ function validateHashtag(hashtags){
   return flag;
 }
 
-pristine.addValidator(uploadForm.querySelector('.text__hashtags'), validateHashtag, 'Не больше 5 уникальных хэштэгов. Хэштэг от 1 до 20 символов, включая #');
+pristine.addValidator(hashtagUser, validateHashtag, 'Не больше 5 уникальных хэштэгов. Хэштэг от 1 до 20 символов, включая #');
 
-uploadForm.querySelector('.text__hashtags').addEventListener('input', () => {
+hashtagUser.addEventListener('input', () => {
   if(pristine.validate()) {
     uploadButtonSubmit.disabled = false;
   }

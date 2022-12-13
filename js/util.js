@@ -16,10 +16,6 @@ const getNumbersArray = function (amount) {
   return numbersArray;
 };
 
-const commentsIds = getNumbersArray(100);
-const photosIds = getNumbersArray(25);
-const usersIds = getNumbersArray(25);
-
 const getRandomDifferentNumber = function (array) {
   const randomIndex = getRandomNumber(0, array.length - 1);
   if (array[randomIndex] === '') {
@@ -36,4 +32,4 @@ const getRandomDifferentNumber = function (array) {
 //     return (stringLength <= maxLength);
 // };
 
-export {getRandomNumber, getRandomDifferentNumber, commentsIds, photosIds, usersIds};
+export {getRandomNumber, getRandomDifferentNumber,getNumbersArray};

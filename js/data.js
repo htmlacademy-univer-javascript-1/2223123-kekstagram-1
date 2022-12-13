@@ -1,4 +1,4 @@
-import {getRandomNumber, getRandomDifferentNumber, commentsIds, photosIds, usersIds} from './util.js';
+import {getRandomNumber, getRandomDifferentNumber,getNumbersArray} from './util.js';
 
 const COMMENTS_VARIANTS = [
   'Всё отлично!',
@@ -15,6 +15,10 @@ const NAMES_VARIANTS = [
   'Алексей',
   'Маргарита',
 ];
+
+const commentsIds = getNumbersArray(100);
+const photosIds = getNumbersArray(25);
+const usersIds = getNumbersArray(25);
 
 const getRandomComment = function () {
   const comment = {
