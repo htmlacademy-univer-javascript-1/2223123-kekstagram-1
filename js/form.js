@@ -50,7 +50,7 @@ function validateHashtag(hashtags){
   let flag = false;
   const hashtagsArray = hashtags.split(' ');
   for (let i =0; i<hashtagsArray.length; i++){
-    if(re.test(hashtagsArray[i]) &&(hashtagsArray.length<=5) && !hasDuplicates(hashtagsArray)){
+    if(re.test(hashtagsArray[i]) &&(hashtagsArray.length<=5) && !hasDuplicates(hashtagsArray) || hashtagsArray[i]===''){
       flag = true;
     }
     else{
