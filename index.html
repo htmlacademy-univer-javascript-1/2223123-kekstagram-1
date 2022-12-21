@@ -214,16 +214,10 @@
     </a>
   </template>
 
-  <!-- Сообщение с ошибкой загрузки изображения -->
-  <template id="error">
-    <section class="error">
-      <div class="error__inner">
-        <h2 class="error__title">Ошибка загрузки файла</h2>
-        <button type="button" class="error__button">Загрузить другой файл</button>
-      </div>
-    </section>
+  <!-- Экран загрузки изображения -->
+  <template id="messages">
+    <div class="img-upload__message  img-upload__message--loading">Загружаем...</div>
   </template>
-
   <!-- Сообщение об успешной загрузке изображения -->
   <template id="success">
     <section class="success">
@@ -234,15 +228,24 @@
     </section>
   </template>
 
-  <!-- Экран загрузки изображения -->
-  <template id="messages">
-    <div class="img-upload__message  img-upload__message--loading">Загружаем...</div>
+<!-- Сообщение с ошибкой загрузки изображения -->
+  <template id="error">
+    <section class="error">
+      <div class="error__inner">
+        <h2 class="error__title">Ошибка загрузки файла</h2>
+        <button type="button" class="error__button">Загрузить другой файл</button>
+      </div>
+    </section>
   </template>
+
   <script src="./pristine/pristine.min.js"></script>
   <script type="module" src="./js/main.js"></script>
   <script type="module" src="./js/miniatures.js"></script>
+  <script type="module" src="./js/server-data.js"></script>
   <script type="module" src="./js/form.js"></script>
   <script src="./nouislider/nouislider.js"></script>
   <script type="module" src="./js/sliders.js"></script>
+
+
 </body>
 </html>

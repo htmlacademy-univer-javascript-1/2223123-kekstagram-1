@@ -1,3 +1,5 @@
+import {sendData} from './server-data.js';
+
 const fileUpload = document.querySelector('#upload-file');
 const uploadButtonCancel = document.querySelector('#upload-cancel');
 const uploadForm = document.querySelector('.img-upload__form');
@@ -5,25 +7,31 @@ const uploadButtonSubmit = document.querySelector('.img-upload__submit');
 const commentUser = uploadForm.querySelector('.text__description');
 const hashtagUser = uploadForm.querySelector('.text__hashtags');
 
-fileUpload.addEventListener('change', ()=>{
+function closeUserModal(){
+  document.querySelector('.img-upload__overlay').classList.add('hidden');
+  fileUpload.value = '';
+}
+function openUserModal(){
   document.querySelector('.img-upload__overlay').classList.remove('hidden');
+}
+
+fileUpload.addEventListener('change', () => {
+  openUserModal();
   document.querySelector('body').classList.add('modal-open');
 });
 
-uploadButtonCancel.addEventListener('click', ()=>{
-  document.querySelector('.img-upload__overlay').classList.add('hidden');
-  fileUpload.value = '';
+uploadButtonCancel.addEventListener('click', () => {
+  closeUserModal();
   document.querySelector('body').classList.remove('modal-open');
 });
 
-document.addEventListener('keydown', (evt)=>{
+document.addEventListener('keydown', (evt) => {
   if(evt.keyCode === 27 && commentUser !== document.activeElement && hashtagUser !== document.activeElement){
-    document.querySelector('.img-upload__overlay').classList.add('hidden');
+    closeUserModal();
     fileUpload.value = '';
     document.querySelector('body').classList.remove('modal-open');
   }
 });
-
 
 const pristine = new Pristine(uploadForm, {
   classTo: 'img-upload__text-item',
@@ -81,8 +89,16 @@ uploadForm.querySelector('.text__description').addEventListener('input', () => {
   }
 });
 
-uploadForm.addEventListener('submit', (evt)=>{
-  evt.preventDefault();
-  pristine.validate();
-});
+const setUserFormSubmit = (onSuccess) => {
+  uploadForm.addEventListener('submit', (evt)=>{
+    evt.preventDefault();
+    const isValidate = pristine.validate();
+    if(isValidate){
+      sendData(evt, onSuccess);
+    }
+  });
+};
+
+export {setUserFormSubmit, closeUserModal};
+
 
