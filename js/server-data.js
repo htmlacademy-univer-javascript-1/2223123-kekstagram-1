@@ -1,16 +1,17 @@
-import {renderPictures} from './miniatures.js';
-import {setUserFormSubmit} from './form.js';
-import {closeUserModal} from './form.js';
 import {showAlert} from './util.js';
+const filters = document.querySelector('.img-filters');
+const getData = (onSuccess) => {
+  fetch('https://26.javascript.pages.academy/kekstagram/data')
+    .then((response) => response.json())
+    .then((photos) => {
+      onSuccess(photos);
+      filters.classList.remove('img-filters--inactive');
+    })
+    .catch(() => {
+      showAlert('Не удалось загрузить фотографии пользователей');
+    });
+};
 
-fetch('https://26.javascript.pages.academy/kekstagram/data')
-  .then((response) => response.json())
-  .then((photos) => {
-    renderPictures(photos);
-  })
-  .catch(() => {
-    showAlert('Не удалось загрузить фотографии пользователей');
-  });
 
 const sendData = function(evt, onSuccess){
   const formData = new FormData(evt.target);
@@ -34,5 +35,4 @@ const sendData = function(evt, onSuccess){
     });
 };
 
-setUserFormSubmit(closeUserModal);
-export {sendData};
+export {sendData, getData};
