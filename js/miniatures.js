@@ -2,8 +2,15 @@
 //import {usersIds} from './util.js';
 import {comparePicturesComments} from './util.js';
 import {shuffle} from './sort-filters.js';
-const picturesTemplate = document.querySelector('#picture').content.querySelector('.picture');
-const picturesContainer = document.querySelector('.pictures');
+const picturesTemplate = document.querySelector('#picture').content.querySelector('a');
+const picturesContainer = document.querySelector('.pictures.container');
+const removePictures = () => {
+  const pictures = picturesContainer.querySelectorAll('.picture');
+
+  pictures.forEach((picture) => {
+    picture.remove();
+  });
+};
 const renderPictures = function(userPictures, picturesCount, countStart, filter){
   const fragment = document.createDocumentFragment();
   if (filter === 'random'){
@@ -53,7 +60,8 @@ const renderPictures = function(userPictures, picturesCount, countStart, filter)
         fragment.appendChild(imgItem);
       });
   }
-  picturesContainer.innerHTML = '';
+  removePictures();
   picturesContainer.appendChild(fragment);
 };
+
 export {renderPictures};

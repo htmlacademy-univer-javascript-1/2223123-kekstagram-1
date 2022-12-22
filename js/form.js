@@ -99,6 +99,6 @@ const setUserFormSubmit = (onSuccess) => {
   });
 };
 
-export {setUserFormSubmit, closeUserModal};
+export {setUserFormSubmit, closeUserModal, openUserModal};
 
 
