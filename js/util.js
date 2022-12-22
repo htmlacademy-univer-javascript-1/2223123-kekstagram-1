@@ -1,4 +1,6 @@
+
 const ALERT_SHOW_TIME = 5000;
+
 
 const getRandomNumber = function (minNumber, maxNumber) {
   if (minNumber >= maxNumber) {
@@ -29,6 +31,31 @@ const getRandomDifferentNumber = function (array) {
   }
 };
 
+function debounce (callback, timeoutDelay = 500) {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+}
+
+function throttle (callback, delayBetweenFrames) {
+  let lastTime = 0;
+  return (...rest) => {
+    const now = new Date();
+    if (now - lastTime >= delayBetweenFrames) {
+      callback.apply(this, rest);
+      lastTime = now;
+    }
+  };
+}
+
+const comparePicturesComments = (pictureA, pictureB) => {
+  const commentA = pictureA.comments.length;
+  const commentB = pictureB.comments.length;
+  return commentB - commentA;
+};
+
 const showAlert = (message) => {
   const alertContainer = document.createElement('div');
   alertContainer.style.zIndex = '100';
@@ -55,4 +82,4 @@ const showAlert = (message) => {
 //     return (stringLength <= maxLength);
 // };
 
-export {getRandomNumber, getRandomDifferentNumber,getNumbersArray, showAlert};
+export {getRandomNumber, getRandomDifferentNumber,getNumbersArray, showAlert, debounce, throttle, comparePicturesComments};
